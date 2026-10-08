@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Pacifico&display=swap');
+
+:root {
+  --green: #648f45;
+  --dark-green: #315d35;
+  --cream: rgba(255, 249, 237, .96);
+  --pink: #ef8fa9;
+  --shadow: 0 22px 60px rgba(38, 54, 35, .32);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Comfortaa", system-ui, sans-serif;
+  color: #273326;
+  background: #d8e6cf;
+}
+
+.page {
+  min-height: 100vh;
+  padding: clamp(18px, 4vw, 50px) 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background:
+    linear-gradient(rgba(39, 54, 37, .18), rgba(39, 54, 37, .18)),
+    url("birthday-background.png") center top / cover fixed no-repeat;
+}
+
+.quiz-card {
+  width: min(760px, 100%);
+  margin-top: clamp(20px, 8vw, 90px);
+  padding: clamp(24px, 5vw, 48px);
+  border-radius: 34px;
+  background: var(--cream);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(7px);
+  border: 3px solid rgba(255,255,255,.75);
+}
+
+.sparkles {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: .35rem;
+  margin-bottom: 6px;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.2;
+  color: var(--dark-green);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: clamp(.95rem, 2vw, 1.1rem);
+  line-height: 1.55;
+  margin: 14px 0 28px;
+}
+
+fieldset {
+  border: 2px solid #d8e5ca;
+  border-radius: 20px;
+  padding: 18px 20px 14px;
+  margin: 0 0 17px;
+  background: rgba(255,255,255,.66);
+}
+
+legend {
+  padding: 0 9px;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.4vw, 1.18rem);
+  color: #3d5937;
+}
+
+label {
+  display: block;
+  padding: 10px 9px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: .18s ease;
+  line-height: 1.35;
+}
+
+label:hover { background: #edf5e6; transform: translateX(2px); }
+
+input {
+  accent-color: var(--green);
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 7px;
+}
+
+button {
+  display: block;
+  width: min(360px, 100%);
+  margin: 24px auto 0;
+  padding: 16px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #759e50, #4f7f3f);
+  color: white;
+  font: 700 1.05rem "Comfortaa", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 9px 20px rgba(63, 105, 48, .28);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+button:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(63, 105, 48, .34); }
+button:active { transform: translateY(0); }
+
+.result {
+  margin-top: 25px;
+  padding: 23px;
+  border-radius: 22px;
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.22rem);
+  line-height: 1.55;
+  font-weight: 700;
+  animation: pop .45s ease;
+}
+
+.result.success {
+  background: #e5f3d7;
+  color: #2f6535;
+  border: 2px solid #a8c98c;
+}
+
+.result.fail {
+  background: #ffe7e5;
+  color: #a43d46;
+  border: 2px solid #f1aaa9;
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(.96) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 10px;
+    background-attachment: scroll;
+  }
+  .quiz-card {
+    margin-top: 12px;
+    border-radius: 24px;
+    padding: 22px 16px;
+  }
+  fieldset { padding: 15px 12px 10px; }
+}
